@@ -1,0 +1,51 @@
+{% extends "basic.html" %}
+{% block content %}
+<div class="container">
+  <div class="jumbotron style1">
+    <h1>The Titanic Problem</h1>
+    <h4>This site will predict if the person with the given features was in the TITANIC SHIP whether the person was alive or not in the accident</h4>
+    <br>
+    <p>This was using machine Learning techniques to predict the result. The Random forest with 15 trees is the best fitting algorithm for this process</p>
+  </div>
+  <div class="row">
+      <div class="col-sm-6 col-md-6 col-lg-4" style="background-color:white;font-family: 'Black Ops One', cursive;">
+        <form method="post">
+          {# {{ form.as_p }} #}
+          <table >
+            {% csrf_token %}
+              {% for field in form %}
+              <tbody>
+              <tr>
+                <td>
+                  <label for="{{ field.label }}" style="display:inline-block;vertical-align:middle">{{ field.label_tag }}</label>
+                </td>
+                <td>
+                  {{ field }}
+                </td>
+              </tr>
+
+              {% endfor %}
+              </tbody>
+            </table>
+          {% csrf_token %}
+          <input type="submit" class = 'btn btn-primary' value="submit"/>
+        </form>
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-8" style="background-color:orange;font-family: 'Black Ops One', cursive;">
+        <p>passengerid is the person id that will start from 1 and continue</p>
+        <p>passengerclass has 1 = upper 2 = middle 3 = lower</p>
+        <p>Age is your wish</p>
+        <p>give number of siblings are in the ship along with you</p>
+        <p>give the number of parents along with you in the ship</p>
+        <p>Fare is the price he or she paid for the ticket those are ranging from 3 to 80</p>
+        <p>Mark this as 1 if the person is female</p>
+        <p>mark this as 1 if the person is male</p>
+        <p>mark this as 1 when the person boarding point is this</p>
+        <p>mark this as 1 when the person boarding point is this</p>
+        <p>mark this as 1 when the person boarding point is this</p>
+      </div>
+    </div>
+
+  <h3>Check out the remaining algorithms</h3>
+</div>
+{% endblock %}

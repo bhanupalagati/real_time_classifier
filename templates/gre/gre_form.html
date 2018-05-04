@@ -1,0 +1,54 @@
+{% extends "basic.html" %}
+
+{% block content %}
+<div class="container">
+
+  <div class="jumbotron style1">
+    <h1>The GRE Problem</h1>
+    <h4>This site will predict the chance of getting a seat in the opted University for the masters program based on the gre Gpa and some other useful informations. Hope you get benifit from this</h4>
+    <br>
+    <p>This was using machine Learning techniques to predict the result. The Random forest with 15 trees is the best fitting algorithm for this process</p>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-md-6 col-lg-4" font-family: 'Black Ops One', cursive;">
+      <form method="post">
+        {# {{ form.as_p }} #}
+        <table >
+          {% csrf_token %}
+            {% for field in form %}
+            <tbody>
+            <tr>
+              <td>
+                <label for="{{ field.label }}" style="display:inline-block;vertical-align:middle">{{ field.label_tag }}</label>
+              </td>
+              <td>
+                {{ field }}
+              </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        {% csrf_token %}
+        <input type="submit" class = 'btn btn-primary' value="submit"/>
+      </form>
+      <br>
+      <br>
+      <br>
+      <p>Thank you for using the service</p>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-8" style="background-color:orange;font-family: 'Black Ops One', cursive;">
+      <p>Give Us the GRE Score You Got or Expected Max is 340</p>
+      <p>Give Us the TOFFEL Score You Got or Expected Max is 110</p>
+      <p>Give the UNIVERSITY RATING you are going to apply that is in the scale of 1 to 5</p>
+      <p>Valuate The Statement Of Purpose in the scale of 1 to 5</p>
+      <p>Valuate the Letter Of Reference in the scale of 1 to 5/p>
+      <p>Enter the CPGA you secured in the Degree Examinations in the scale of 1 to 10</p>
+      <p>Enter 1 if you done research 0 if not</p>
+    </div>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}
